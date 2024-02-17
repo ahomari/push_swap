@@ -6,76 +6,89 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:47:40 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/15 21:31:51 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/02/17 12:52:06 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	ft_check(char *av)
+void	ft_check(char *str)
 {
-	t_push_swap ps;
-	
-	ps.i = 0;
-	while (av[ps.i])
-	{
-		if (av[ps.i] == ' ')
-			return (1);
-		else if (av[ps.i] == '+' || av[ps.i] == '-')
-			return (2);
-		ps.i++;
-	}
-	return (0);
-}
+	int i;
 
-void	ft_print(char **str)
-{
-	t_push_swap ps;
-	
-	ps.i = 0;
-	while (str[ps.i])
+	i = 0;
+	while (str[i])
 	{
-		if (ft_check(str[ps.i]) == 2)
-			msg_error(-2, "error!!");
-		ps.n = ft_atoi(str[ps.i]);
-		printf("%d\n", ps.n);
-		ps.i++;
+		if (!ft_isdigit(str[i]) && !str[i + 1])
+			msg_error(-2, "Error!!!");
+		else if (!ft_isdigit(str[i]) && !ft_isdigit(str[i + 1]))
+			msg_error(-2, "Error!!!");
+		i++;
 	}
 }
 
-void	parsing(int ac, char **av)
+void	check_stack_a(int n, t_list **a)
 {
-	t_push_swap	ps;
+	t_list	*tmp;
 	
+	tmp = *a;
+	while (tmp)
+	{
+		if (tmp->content == n)
+			msg_error(-2, "ERROR");
+		tmp = tmp->next;
+	}
+}
+
+void	addstack_a(char **argv, t_list **a)
+{
+	int		i;
+	int		n;
+	t_list	*new;
+	
+
+	i = 0;
+	while (argv[i])
+	{
+		ft_check(argv[i]);
+		n = ft_atoi(argv[i]);
+		check_stack_a(n, a);
+		new = ft_lstnew(n);
+		ft_lstadd_back(a, new);
+		i++;
+	}
+}
+
+void	parsing(int ac, char **av, t_list **a)
+{
+	int 		i;
+	char		**argv;
+
 	if (ac < 2)
 		exit(1);
 	else if (ac == 2 && !av[1][0])
 		msg_error(-2, "error !!");
 	else
 	{
-		ps.i = 1;
-		while (av[ps.i])
+		i = 1;
+		while (i < ac)
 		{
-			if (ft_check(av[ps.i]) == 1)
-			{
-				ps.argv = ft_split(av[ps.i], ' ');
-				ft_print(ps.argv);
-				ft_free(ps.argv);
-			}
-			else
-			{
-				if (ft_check(av[ps.i]) == 2)
-					msg_error(-2, "error!!");
-				ps.n = ft_atoi(av[ps.i]);
-				printf("%d\n", ps.n);
-			}
-			ps.i++;
+			argv = ft_split(av[i], ' ');
+			addstack_a(argv, a);
+			ft_free(argv);
+			i++;
 		}
 	}
 }
 
 int	main(int ac, char **av)
 {
-	// printf("%s=======>\n", av[2]);
-	parsing(ac, av);
+	t_list	*a;
+	t_list	*b;
+
+	a = NULL;
+	b = NULL;
+	parsing(ac, av, &a);
+	ft_printf(a);
+	
 }

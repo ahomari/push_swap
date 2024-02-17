@@ -6,7 +6,7 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:29:09 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/15 19:05:07 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/02/17 10:33:21 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*current;
 
-	if (!lst)
+	if (!lst || !new)
 		return ;
-	if (!*lst)
+	if (!(*lst))
 	{
 		*lst = new;
 		return ;

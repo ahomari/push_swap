@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dbl_free.c                                      :+:      :+:    :+:   */
+/*   print_linkedlist.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 11:15:54 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/15 13:40:37 by ahomari          ###   ########.fr       */
+/*   Created: 2024/02/17 10:42:54 by ahomari           #+#    #+#             */
+/*   Updated: 2024/02/17 10:54:01 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	*ft_free(char **strs)
+void	ft_printf(t_list *a)
 {
-	int	i;
-
-	i = 0;
-	while (**strs)
+	t_list *current;
+	
+	current = a;
+	while (current)
 	{
-		free(strs[i]);
-		i++;
+		printf("%d\n", current->content);
+		current = current->next;
 	}
-	free(strs);
-	return (NULL);
 }

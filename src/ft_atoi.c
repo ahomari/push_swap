@@ -6,7 +6,7 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:35:42 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/15 21:24:23 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/02/17 12:06:14 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_atoi(char *str)
 {
 	int				i;
 	int				n;
-	unsigned long	r;
+	long long		r;
 
 	i = 0;
 	n = 1;
@@ -43,10 +43,12 @@ int	ft_atoi(char *str)
 			n *= -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (ft_isdigit(str[i]))
 	{
 		r = r * 10 +(str[i] - 48);
 		i++;
 	}
+	if (((r * n) > INT_MAX ) || ((r * n) < INT_MIN))
+		msg_error(-2,  "Out of int range");
 	return (r * n);
 }

@@ -6,7 +6,7 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:31:34 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/15 19:05:14 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/02/17 10:32:34 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*current;
 
-	current = lst;
 	if (!lst)
 		return (NULL);
+	current = lst;
 	while (current->next)
 	{
 		current = current->next;
