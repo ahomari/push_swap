@@ -6,26 +6,12 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:47:40 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/17 12:52:06 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/02/17 14:57:49 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_check(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]) && !str[i + 1])
-			msg_error(-2, "Error!!!");
-		else if (!ft_isdigit(str[i]) && !ft_isdigit(str[i + 1]))
-			msg_error(-2, "Error!!!");
-		i++;
-	}
-}
 
 void	check_stack_a(int n, t_list **a)
 {
@@ -50,7 +36,6 @@ void	addstack_a(char **argv, t_list **a)
 	i = 0;
 	while (argv[i])
 	{
-		ft_check(argv[i]);
 		n = ft_atoi(argv[i]);
 		check_stack_a(n, a);
 		new = ft_lstnew(n);
@@ -65,7 +50,7 @@ void	parsing(int ac, char **av, t_list **a)
 	char		**argv;
 
 	if (ac < 2)
-		exit(1);
+		exit(0);
 	else if (ac == 2 && !av[1][0])
 		msg_error(-2, "error !!");
 	else
