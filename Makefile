@@ -17,7 +17,7 @@ S_OBJ			= ${SRC_MAN:.c=.o}
 				${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}:		${F_OBJ} ${S_OBJ}
-				@${CC} ${F_OBJ} ${S_OBJ} -o ${NAME} -fsanitize=address
+				@${CC} ${F_OBJ} ${S_OBJ} -o ${NAME} -g -fsanitize=address
 				@echo "${GREEN}================================${DEFAULT}"
 				@echo "${GREEN}=======| ${NAME} Created! |=======${DEFAULT}"
 				@echo "${GREEN}================================${DEFAULT}"

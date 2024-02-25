@@ -6,7 +6,7 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:48:07 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/24 16:11:48 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/02/25 20:08:20 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ void	ft_push_b(t_list **arg_a, t_list **arg_b);
 void	sort_3(t_list **arg_a);
 int		ft_check_sorting(t_list **arg_ab);
 void	sort_5(t_list **arg_a, t_list **arg_b);
+void	ft_sorting(t_list **arg_a, t_list **arg_b);
+void	rotate_ab(t_list **arg_a, t_list **arg_b);
+void	ft_rotate(t_list **arg_ab, char c);
+void	ft_sorting2(t_list **arg_a, t_list **arg_b);
+int		ft_max(t_list **arg_ab);
+int		ft_index_b(int index, t_list **arg_b);
 
 
 

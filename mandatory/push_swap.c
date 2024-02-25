@@ -6,7 +6,7 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:47:40 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/24 16:13:07 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/02/25 22:34:49 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,22 +97,62 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	parsing(ac, av, &a);
-	// sort_3(&a);
-	sort_5(&a, &b);
+	// while (ft_lstsize(a) > 3)
+	// 	ft_push_b(&a, &b);
+	// ft_printf(a);
+	// printf("==================\n");
+	// ft_printf(b);
+	// printf("==================\n");
+	// printf("%d\n", ft_index_b((a)->index - 1 , &b));
+	// ft_rotate(&a, 'a');
+	// ft_rotate(&a, 'a');
+	// ft_rotate(&a, 'a');
+	// ft_push_b(&a, &b);
+	// ft_printf(b);
+	// ft_push_b(&a, &b);
+	// ft_push_b(&a, &b);
+	// ft_push_a(&a, &b);
+	// ft_push_a(&a, &b);
+	// ft_swap(&a, 'a');
+	// ft_swap(&a, 'a');
+	// ft_swap(&a, 'a');
+	// ft_swap(&a, 'a');
+	// ft_reverse_rotate(&a, 'a');
+	// ft_reverse_rotate(&a, 'a');
+	// ft_rotate(&a, 'a');
+	// ft_rotate(&a, 'a');
+	// ft_rotate(&a, 'a');
+	// ft_reverse_rotate(&a, 'a');
+	// ft_reverse_rotate(&a, 'a');
+	// ft_reverse_rotate(&a, 'a');
+	// ft_reverse_rotate(&a, 'a');
+	// ft_reverse_rotate(&a, 'a');
+	// ft_rotate(&a, 'a');
+	// ft_rotate(&a, 'a');
+	// ft_rotate(&a, 'a');
+	// ft_reverse_rotate(&a, 'a');
+	// ft_reverse_rotate(&a, 'a');
+	// ft_reverse_rotate(&a, 'a');
+	// ft_reverse_rotate(&a, 'a');
+	// ft_reverse_rotate(&a, 'a');
+	// if (ft_lstsize(a) == 3)
+	// 	sort_3(&a);
+	// else if (ft_lstsize(a) == 5)
+	// 	sort_5(&a, &b);
+	ft_sorting(&a, &b);
 	// printf("%d\n", ft_check_sorting(&a));
-	ft_printf(a);
-	printf("==================\n");
-	ft_printf(b);
+	// ft_printf(a);
+	// printf("==================\n");
+	// ft_printf(b);
 	// printf("==================\n");
 	// ft_printf(b);
 	// ft_push_b(&a, &b);
 	// ft_swap(&a, 'a');
-	// ft_printf(a);
-	// printf("==================\n");
 	// ft_printf(b);
 	// ft_push_a(&a, &b);  
 	// printf("==================\n");
-	// ft_printf(a);
-	// printf("==================\n");
+	// ft_printf(b);
+	printf("==================%d\n", ft_lstsize(a));
+		ft_printf(a);
 	// ft_printf(b);	
 }
