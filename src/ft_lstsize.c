@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 12:23:09 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/23 20:10:32 by ahomari          ###   ########.fr       */
+/*   Created: 2024/02/23 10:45:06 by ahomari           #+#    #+#             */
+/*   Updated: 2024/02/23 10:45:26 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_list	*ft_lstnew(int content)
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*newnode;
+	int		i;
+	t_list	*current;
 
-	newnode = malloc(sizeof(t_list));
-	if (!newnode)
-		return (NULL);
-	newnode->content = content;
-	newnode->index = -1;
-	newnode->next = NULL;
-	return (newnode);
+	current = lst;
+	i = 0;
+	while (current)
+	{
+		current = current->next;
+		i++;
+	}
+	return (i);
 }

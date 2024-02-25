@@ -6,7 +6,7 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:48:07 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/17 10:52:06 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/02/24 16:11:48 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 typedef struct s_list
 {
-	int			content;
+	int 			index;
+	int				content;
 	struct s_list	*next;
 }					t_list;
 
@@ -39,6 +40,17 @@ void	*ft_calloc(size_t count, size_t size);
 void	*ft_free(char **strs);
 int		ft_isdigit(char c);
 void	ft_printf(t_list *a);
+void	ft_swap(t_list **arg, char c);
+int		ft_lstsize(t_list *lst);
+void	swap_ab(t_list **arg_a, t_list **arg_b);
+void	ft_rotate(t_list **arg_ab, char c);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_reverse_rotate(t_list **arg_ab, char c);
+void	ft_push_a(t_list **arg_a, t_list **arg_b);
+void	ft_push_b(t_list **arg_a, t_list **arg_b);
+void	sort_3(t_list **arg_a);
+int		ft_check_sorting(t_list **arg_ab);
+void	sort_5(t_list **arg_a, t_list **arg_b);
 
 
 
