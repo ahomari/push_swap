@@ -12,20 +12,6 @@
 
 #include "../include/push_swap.h"
 
-// static int	ft_check(int signe)
-// {
-// 	if (signe < 0)
-// 		return (0);
-// 	return (-1);
-// // }
-// static int	ft_isspace(char c)
-// {
-// 	if (c == '\t' || c == '\n' || c == '\v' || c == '\f'
-// 		|| c == '\r' || c == ' ')
-// 		return (1);
-// 	return (0);
-// }
-
 int	ft_atoi(char *str)
 {
 	int				i;
@@ -42,14 +28,14 @@ int	ft_atoi(char *str)
 		i++;
 	}
 	if (!str[i])
-		msg_error(-2,  "00000000");
+		msg_error(-2,  "Error\n");
 	while (str[i])
 	{
 		if (ft_isdigit(str[i]) == 0)
-			msg_error(-2,  "1");
+			msg_error(-2,  "Error\n");
 		r = r * 10 +(str[i] - 48);
 		if (((r * n) > INT_MAX ) || ((r * n) < INT_MIN))
-			msg_error(-2,  "Out of int range");
+			msg_error(-2,  "Error\n");
 		i++;
 	}
 	return (r * n);

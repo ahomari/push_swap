@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ahmedomari <ahmedomari@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:47:40 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/25 22:34:49 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/02/26 14:29:29 by ahmedomari       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	check_stack_a(int n, t_list **a)
 	while (tmp)
 	{
 		if (tmp->content == n)
-			msg_error(-2, "ERROR");
+			msg_error(-2, "Error\n");
 		tmp = tmp->next;
 	}
 }
@@ -74,13 +74,15 @@ void	parsing(int ac, char **av, t_list **a)
 	if (ac < 2)
 		exit(0);
 	else if (ac == 2 && !av[1][0])
-		msg_error(-2, "error !!");
+		msg_error(-2, "Error\n");
 	else
 	{
 		i = 1;
 		while (i < ac)
 		{
 			argv = ft_split(av[i], ' ');
+			if (!argv || !argv[0])
+				msg_error(-2, "Error\n");
 			addstack_a(argv, a);
 			ft_free(argv);
 			i++;
@@ -89,70 +91,23 @@ void	parsing(int ac, char **av, t_list **a)
 	}
 }
 
+void ff()
+{
+	system("leaks push_swap");
+}
+
 int	main(int ac, char **av)
 {
 	t_list	*a;
 	t_list	*b;
 
+	// atexit(ff);
 	a = NULL;
 	b = NULL;
 	parsing(ac, av, &a);
-	// while (ft_lstsize(a) > 3)
-	// 	ft_push_b(&a, &b);
-	// ft_printf(a);
-	// printf("==================\n");
-	// ft_printf(b);
-	// printf("==================\n");
-	// printf("%d\n", ft_index_b((a)->index - 1 , &b));
-	// ft_rotate(&a, 'a');
-	// ft_rotate(&a, 'a');
-	// ft_rotate(&a, 'a');
-	// ft_push_b(&a, &b);
-	// ft_printf(b);
-	// ft_push_b(&a, &b);
-	// ft_push_b(&a, &b);
-	// ft_push_a(&a, &b);
-	// ft_push_a(&a, &b);
-	// ft_swap(&a, 'a');
-	// ft_swap(&a, 'a');
-	// ft_swap(&a, 'a');
-	// ft_swap(&a, 'a');
-	// ft_reverse_rotate(&a, 'a');
-	// ft_reverse_rotate(&a, 'a');
-	// ft_rotate(&a, 'a');
-	// ft_rotate(&a, 'a');
-	// ft_rotate(&a, 'a');
-	// ft_reverse_rotate(&a, 'a');
-	// ft_reverse_rotate(&a, 'a');
-	// ft_reverse_rotate(&a, 'a');
-	// ft_reverse_rotate(&a, 'a');
-	// ft_reverse_rotate(&a, 'a');
-	// ft_rotate(&a, 'a');
-	// ft_rotate(&a, 'a');
-	// ft_rotate(&a, 'a');
-	// ft_reverse_rotate(&a, 'a');
-	// ft_reverse_rotate(&a, 'a');
-	// ft_reverse_rotate(&a, 'a');
-	// ft_reverse_rotate(&a, 'a');
-	// ft_reverse_rotate(&a, 'a');
-	// if (ft_lstsize(a) == 3)
-	// 	sort_3(&a);
-	// else if (ft_lstsize(a) == 5)
-	// 	sort_5(&a, &b);
+	if (!ft_check_sorting(&a))
+		exit(0);
+	if (ft_lstsize(a) == 2)
+		ft_rotate(&a, 'a');
 	ft_sorting(&a, &b);
-	// printf("%d\n", ft_check_sorting(&a));
-	// ft_printf(a);
-	// printf("==================\n");
-	// ft_printf(b);
-	// printf("==================\n");
-	// ft_printf(b);
-	// ft_push_b(&a, &b);
-	// ft_swap(&a, 'a');
-	// ft_printf(b);
-	// ft_push_a(&a, &b);  
-	// printf("==================\n");
-	// ft_printf(b);
-	printf("==================%d\n", ft_lstsize(a));
-		ft_printf(a);
-	// ft_printf(b);	
 }

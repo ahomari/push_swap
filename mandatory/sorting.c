@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ahmedomari <ahmedomari@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 11:03:06 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/25 22:39:40 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/02/26 14:30:56 by ahmedomari       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ void	ft_sorting(t_list **arg_a, t_list **arg_b)
 				ft_push_b(arg_a, arg_b);
 			else if ((*arg_a)->index >= pivot2)
 				ft_rotate(arg_a, 'a');
-			// printf("size of a %d\n", ft_lstsize(*arg_a));
-			// printf("size of b %d p2 %d\n", ft_lstsize(*arg_b), pivot2);
 		}
 	}
 	sort_3(arg_a);
@@ -101,22 +99,49 @@ int	ft_max(t_list **arg_ab)
 int	ft_index_b(int index, t_list **arg_b)
 {
 	int	i;
+	t_list *current;
 
 	i = 0;
-	while (*arg_b)
+	current = *arg_b;
+	while (current)
 	{
 		i++;
-		if (index == (*arg_b)->index)
+		if (index == current->index)
 			return (i);
-		(*arg_b) = (*arg_b)->next;
+		current =current->next;
 	}
 	return (0);
 }
 
-void	ft_sorting2(t_list **arg_a, t_list **arg_b)
+void	ft_sub_sorting2(t_list **arg_a, t_list **arg_b)
 {
 	int pos;
+	
+	if ((*arg_b)->index > (ft_lstlast((*arg_a))->index))
+	{
+		ft_push_a(arg_a, arg_b);
+		ft_rotate(arg_a, 'a');
+	}
+	else if ((ft_lstlast((*arg_b))->index) > (ft_lstlast((*arg_a))->index))
+	{
+		ft_reverse_rotate(arg_b, 'b');
+		ft_push_a(arg_a, arg_b);
+		ft_rotate(arg_a, 'a');
+	}
+	else if ((ft_lstlast((*arg_a))->index) == (*arg_a)->index - 1)
+		ft_reverse_rotate(arg_a, 'a');
+	else
+	{
+		pos = ft_index_b((*arg_a)->index - 1, arg_b);
+		if (pos <= ft_lstsize(*arg_b) / 2)
+			ft_rotate(arg_b, 'b');
+		else
+			ft_reverse_rotate(arg_b, 'b');
+	}
+}
 
+void	ft_sorting2(t_list **arg_a, t_list **arg_b)
+{
 	while (ft_lstsize(*arg_b))
 	{
 		if ((*arg_a)->index - 1 == (*arg_b)->index)
@@ -131,33 +156,10 @@ void	ft_sorting2(t_list **arg_a, t_list **arg_b)
 			ft_push_a(arg_a, arg_b);
 			ft_rotate(arg_a, 'a');
 		}
-		else if ((*arg_b)->index > (ft_lstlast((*arg_a))->index))
-		{
-			ft_push_a(arg_a, arg_b);
-			ft_rotate(arg_a, 'a');
-		}
-		else if ((ft_lstlast((*arg_b))->index) > (ft_lstlast((*arg_a))->index))
-		{
-			ft_reverse_rotate(arg_b, 'b');
-			ft_push_a(arg_a, arg_b);
-			ft_rotate(arg_a, 'a');
-		}
-		else if ((ft_lstlast((*arg_a))->index) == (*arg_a)->index - 1)
-			ft_reverse_rotate(arg_a, 'a');
 		else
-		{
-			pos = ft_index_b((*arg_a)->index - 1, arg_b);
-			if (pos <= ft_lstsize(*arg_b) / 2)
-				ft_rotate(arg_b, 'b');
-			else if (pos > ft_lstsize(*arg_b) / 2)
-				ft_reverse_rotate(arg_b, 'b');
-		}
-		printf("=======A=======%d\n", ft_lstsize(*arg_a));
-		ft_printf(*arg_a);
-		printf("=======B=======%d\n", ft_lstsize(*arg_b));
-		ft_printf(*arg_b);
+			ft_sub_sorting2(arg_a, arg_b);
 	}
-	// while (ft_lstlast(*arg_a)->index < (*arg_a)->index)
-	// 	ft_reverse_rotate(arg_a, 'a');
+	while (ft_lstlast(*arg_a)->index < (*arg_a)->index)
+		ft_reverse_rotate(arg_a, 'a');
 }
 
