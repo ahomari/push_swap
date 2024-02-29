@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msg_error.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 15:09:47 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/26 21:05:12 by ahomari          ###   ########.fr       */
+/*   Created: 2024/02/14 12:29:09 by ahomari           #+#    #+#             */
+/*   Updated: 2024/02/26 21:43:48 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap_bonus.h"
 
-void	ft_print_msg(char *msg)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int i;
+	t_list	*current;
 
-	i = 0;
-	while (msg[i])
+	if (!lst || !new)
+		return ;
+	if (!(*lst))
 	{
-		write (2, &msg[i], 1);
-		i++;
+		*lst = new;
+		return ;
 	}
-	exit(1);
-}
-void	msg_error(int num, char *msg)
-{
-	if (num == -1)
-		ft_print_msg(msg);
-	else if (num == -2)
-		ft_print_msg(msg);
+	current = ft_lstlast(*lst);
+	current->next = new;
 }

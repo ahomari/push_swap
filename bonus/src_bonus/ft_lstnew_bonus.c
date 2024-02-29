@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msg_error.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 15:09:47 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/26 21:05:12 by ahomari          ###   ########.fr       */
+/*   Created: 2024/02/14 12:23:09 by ahomari           #+#    #+#             */
+/*   Updated: 2024/02/26 21:43:57 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap_bonus.h"
 
-void	ft_print_msg(char *msg)
+t_list	*ft_lstnew(int content)
 {
-	int i;
+	t_list	*newnode;
 
-	i = 0;
-	while (msg[i])
-	{
-		write (2, &msg[i], 1);
-		i++;
-	}
-	exit(1);
-}
-void	msg_error(int num, char *msg)
-{
-	if (num == -1)
-		ft_print_msg(msg);
-	else if (num == -2)
-		ft_print_msg(msg);
+	newnode = malloc(sizeof(t_list));
+	if (!newnode)
+		return (NULL);
+	newnode->content = content;
+	newnode->index = -1;
+	newnode->next = NULL;
+	return (newnode);
 }

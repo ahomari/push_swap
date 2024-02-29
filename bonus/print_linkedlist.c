@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msg_error.c                                        :+:      :+:    :+:   */
+/*   print_linkedlist.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 15:09:47 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/26 21:05:12 by ahomari          ###   ########.fr       */
+/*   Created: 2024/02/17 10:42:54 by ahomari           #+#    #+#             */
+/*   Updated: 2024/02/29 17:25:25 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_print_msg(char *msg)
+void	ft_printf(t_list *a)
 {
-	int i;
+	t_list *current;
+	
+	current = a;
 
-	i = 0;
-	while (msg[i])
+	while (current)
 	{
-		write (2, &msg[i], 1);
-		i++;
+		printf("content : %d   index : %d\n", current->content, current->index);
+		
+		current = current->next;
 	}
-	exit(1);
-}
-void	msg_error(int num, char *msg)
-{
-	if (num == -1)
-		ft_print_msg(msg);
-	else if (num == -2)
-		ft_print_msg(msg);
 }

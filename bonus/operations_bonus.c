@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   operations_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:11:00 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/29 18:03:37 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/02/29 18:03:58 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/push_swap_bonus.h"
 
-void	ft_swap(t_list **arg_ab, char c)
+void	ft_swap(t_list **arg_ab)
 {
 	t_list	*current;
 	t_list	*tmp;
@@ -24,13 +24,9 @@ void	ft_swap(t_list **arg_ab, char c)
 	current->next = tmp->next;
 	tmp->next = current;
 	*arg_ab = tmp;
-	if (c == 'a')
-		ft_putendl_fd("sa", 1);
-	else if (c == 'b')
-		ft_putendl_fd("sb", 1);
 }
 
-void	ft_rotate(t_list **arg_ab, char c)
+void	ft_rotate(t_list **arg_ab)
 {
 	t_list	*current;
 	t_list	*tmp;
@@ -44,12 +40,8 @@ void	ft_rotate(t_list **arg_ab, char c)
 	tmp->next = current;
 	current->next = NULL;
 	*arg_ab = rotate;
-	if (c == 'a')
-		ft_putendl_fd("ra", 1);
-	else if (c == 'b')
-		ft_putendl_fd("rb", 1);
 }
-void	ft_reverse_rotate(t_list **arg_ab, char c)
+void	ft_reverse_rotate(t_list **arg_ab)
 {
 	t_list *tmp;
 	t_list *current;
@@ -63,10 +55,6 @@ void	ft_reverse_rotate(t_list **arg_ab, char c)
 	current->next = NULL;
 	tmp->next = *arg_ab;
 	*arg_ab = tmp;
-	if (c == 'a')
-		ft_putendl_fd("rra", 1);
-	else if (c == 'b')
-		ft_putendl_fd("rrb", 1);
 }
 void	ft_push_b(t_list **arg_a, t_list **arg_b)
 {
@@ -77,7 +65,6 @@ void	ft_push_b(t_list **arg_a, t_list **arg_b)
 		return ;
 	*arg_a = current->next;
 	ft_lstadd_front(arg_b, current);
-	ft_putendl_fd("pb", 1);
 }
 void	ft_push_a(t_list **arg_a, t_list **arg_b)
 {
@@ -88,5 +75,4 @@ void	ft_push_a(t_list **arg_a, t_list **arg_b)
 		return ;
 	*arg_b = current->next;
 	ft_lstadd_front(arg_a, current);
-	ft_putendl_fd("pa", 1);
 }

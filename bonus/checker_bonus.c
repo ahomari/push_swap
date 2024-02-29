@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 17:47:40 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/26 21:05:02 by ahomari          ###   ########.fr       */
+/*   Created: 2024/02/26 21:39:48 by ahomari           #+#    #+#             */
+/*   Updated: 2024/02/29 18:04:21 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-
+#include "../include/push_swap_bonus.h"
 
 void	check_stack_a(int n, t_list **a)
 {
@@ -91,23 +90,57 @@ void	parsing(int ac, char **av, t_list **a)
 	}
 }
 
-void ff()
+char	**ft_realloc(char **ptr, char *str, size_t new_size)
 {
-	system("leaks push_swap");
+	char **new_ptr;
+	size_t i;
+
+	i = 0;
+	// if (new_size == 0)
+	// 	return (new_ptr = (char **)malloc(sizeof(char *)));
+	new_ptr = (char **)malloc(sizeof(char *) * (new_size + 1));
+	if (!new_ptr)
+		return (NULL);	
+	while (ptr && ptr[i])
+	{
+		new_ptr[i] = ptr[i];
+		ptr[i] = NULL;
+		i++;
+	}
+	new_ptr[i] = str;
+	i++;
+	new_ptr[i] = NULL;
+	free(ptr);
+	return (new_ptr);
 }
+
+
 
 int	main(int ac, char **av)
 {
 	t_list	*a;
 	t_list	*b;
+	char	**ptr;
+	char	*str;
+	int		i;
 
 	// atexit(ff);
 	a = NULL;
 	b = NULL;
+	ptr = NULL;
+	i = 0;
 	parsing(ac, av, &a);
-	if (!ft_check_sorting(&a))
-		exit(0);
-	if (ft_lstsize(a) == 2)
-		ft_rotate(&a, 'a');
-	ft_sorting(&a, &b);
+	while (1)
+	{
+		str = get_next_line(0);
+		if (!str)
+			break ;
+		if (ft_check_op(str) == 1)
+			msg_error(-2, "Error\n");
+		i++;
+		ptr = ft_realloc(ptr, str, i);
+	}
+	appli_operation(ptr, &a, &b);
+	ft_printf(a);
+	
 }

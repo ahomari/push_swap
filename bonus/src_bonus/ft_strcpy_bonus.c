@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msg_error.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 15:09:47 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/26 21:05:12 by ahomari          ###   ########.fr       */
+/*   Created: 2024/02/27 09:20:47 by ahomari           #+#    #+#             */
+/*   Updated: 2024/02/27 09:21:38 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap_bonus.h"
 
-void	ft_print_msg(char *msg)
+char	*ft_strcpy(char *dst, char const *src, size_t len)
 {
-	int i;
+	size_t	i;
 
 	i = 0;
-	while (msg[i])
+	while (src[i] && i < len)
 	{
-		write (2, &msg[i], 1);
+		dst[i] = src[i];
 		i++;
 	}
-	exit(1);
-}
-void	msg_error(int num, char *msg)
-{
-	if (num == -1)
-		ft_print_msg(msg);
-	else if (num == -2)
-		ft_print_msg(msg);
+	dst[i] = '\0';
+	return (dst);
 }

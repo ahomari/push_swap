@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msg_error.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 15:09:47 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/26 21:05:12 by ahomari          ###   ########.fr       */
+/*   Created: 2024/02/23 10:45:06 by ahomari           #+#    #+#             */
+/*   Updated: 2024/02/26 21:44:03 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap_bonus.h"
 
-void	ft_print_msg(char *msg)
+int	ft_lstsize(t_list *lst)
 {
-	int i;
+	int		i;
+	t_list	*current;
 
+	current = lst;
 	i = 0;
-	while (msg[i])
+	while (current)
 	{
-		write (2, &msg[i], 1);
+		current = current->next;
 		i++;
 	}
-	exit(1);
-}
-void	msg_error(int num, char *msg)
-{
-	if (num == -1)
-		ft_print_msg(msg);
-	else if (num == -2)
-		ft_print_msg(msg);
+	return (i);
 }

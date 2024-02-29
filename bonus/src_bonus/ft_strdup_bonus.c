@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msg_error.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 15:09:47 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/26 21:05:12 by ahomari          ###   ########.fr       */
+/*   Created: 2024/02/15 09:33:27 by ahomari           #+#    #+#             */
+/*   Updated: 2024/02/26 21:44:15 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap_bonus.h"
 
-void	ft_print_msg(char *msg)
+char	*ft_strdup(char *s1)
 {
-	int i;
+	char	*ptr;
+	size_t	i;
 
 	i = 0;
-	while (msg[i])
+	ptr = ft_calloc((ft_strlen(s1) + 1), sizeof(char));
+	if (!ptr)
+		return (NULL);
+	while (i < ft_strlen(s1))
 	{
-		write (2, &msg[i], 1);
+		ptr[i] = s1[i];
 		i++;
 	}
-	exit(1);
-}
-void	msg_error(int num, char *msg)
-{
-	if (num == -1)
-		ft_print_msg(msg);
-	else if (num == -2)
-		ft_print_msg(msg);
+	return (ptr);
 }

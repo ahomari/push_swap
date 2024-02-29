@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   msg_error.c                                        :+:      :+:    :+:   */
+/*   operations_ab_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 15:09:47 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/26 21:05:12 by ahomari          ###   ########.fr       */
+/*   Created: 2024/02/23 13:05:20 by ahomari           #+#    #+#             */
+/*   Updated: 2024/02/27 09:14:10 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/push_swap_bonus.h"
 
-void	ft_print_msg(char *msg)
+void	swap_ab(t_list **arg_a, t_list **arg_b)
 {
-	int i;
-
-	i = 0;
-	while (msg[i])
-	{
-		write (2, &msg[i], 1);
-		i++;
-	}
-	exit(1);
+	ft_swap(arg_a);
+	ft_swap(arg_b);
 }
-void	msg_error(int num, char *msg)
+
+void	rotate_ab(t_list **arg_a, t_list **arg_b)
 {
-	if (num == -1)
-		ft_print_msg(msg);
-	else if (num == -2)
-		ft_print_msg(msg);
+	ft_rotate(arg_a);
+	ft_rotate(arg_b);
+}
+void	reverse_rotate_ab(t_list **arg_a, t_list **arg_b)
+{
+	ft_reverse_rotate(arg_a);
+	ft_reverse_rotate(arg_b);
 }

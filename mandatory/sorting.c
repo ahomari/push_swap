@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahmedomari <ahmedomari@student.42.fr>      +#+  +:+       +#+        */
+/*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 11:03:06 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/26 14:30:56 by ahmedomari       ###   ########.fr       */
+/*   Updated: 2024/02/26 21:27:20 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ int	ft_max(t_list **arg_ab)
 
 int	ft_index_b(int index, t_list **arg_b)
 {
-	int	i;
-	t_list *current;
+	t_list	*current;
+	int		i;
 
 	i = 0;
 	current = *arg_b;
