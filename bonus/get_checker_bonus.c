@@ -6,7 +6,7 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 09:06:22 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/29 18:15:37 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/03/01 16:13:48 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_check_op(char *str)
 		return (0);
 	else if (ft_strcmp(str, "sb\n") == 0)
 		return (0);
-	else if (ft_strcmp(str, "ss\n")  == 0)
+	else if (ft_strcmp(str, "ss\n") == 0)
 		return (0);
 	else if (ft_strcmp(str, "pa\n") == 0)
 		return (0);
@@ -52,7 +52,7 @@ int	ft_check_op(char *str)
 		return (0);
 	else if (ft_strcmp(str, "rrr\n") == 0)
 		return (0);
-	return	(1);
+	return (1);
 }
 
 void	check_operation(char *str, t_list **arg_a, t_list **arg_b)
@@ -83,8 +83,8 @@ void	check_operation(char *str, t_list **arg_a, t_list **arg_b)
 
 void	appli_operation(char **str, t_list **arg_a, t_list **arg_b)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (str && str[i])
 	{
@@ -95,5 +95,4 @@ void	appli_operation(char **str, t_list **arg_a, t_list **arg_b)
 		ft_putendl_fd("OK", 1);
 	else
 		ft_putendl_fd("KO", 1);
-
 }

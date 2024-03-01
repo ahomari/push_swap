@@ -6,7 +6,7 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:09:47 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/26 21:05:12 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/03/01 16:27:33 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_print_msg(char *msg)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (msg[i])
@@ -24,6 +24,7 @@ void	ft_print_msg(char *msg)
 	}
 	exit(1);
 }
+
 void	msg_error(int num, char *msg)
 {
 	if (num == -1)

@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_linkedlist.c                                 :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 10:42:54 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/29 17:25:25 by ahomari          ###   ########.fr       */
+/*   Created: 2024/03/01 16:38:07 by ahomari           #+#    #+#             */
+/*   Updated: 2024/03/01 16:40:00 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/push_swap_bonus.h"
 
-void	ft_printf(t_list *a)
+int	main(int ac, char **av)
 {
-	t_list *current;
-	
-	current = a;
+	t_list	*a;
+	t_list	*b;
+	char	**ptr;
+	char	*str;
+	int		i;
 
-	while (current)
+	a = NULL;
+	b = NULL;
+	ptr = NULL;
+	i = 0;
+	parsing(ac, av, &a);
+	while (1)
 	{
-		printf("content : %d   index : %d\n", current->content, current->index);
-		
-		current = current->next;
+		str = get_next_line(0);
+		if (!str)
+			break ;
+		if (ft_check_op(str) == 1)
+			msg_error(-2, "Error\n");
+		i++;
+		ptr = ft_realloc(ptr, str, i);
 	}
+	appli_operation(ptr, &a, &b);
+	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 21:39:48 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/29 18:04:21 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/03/01 16:40:16 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	check_stack_a(int n, t_list **a)
 {
 	t_list	*tmp;
-	
+
 	tmp = *a;
 	while (tmp)
 	{
@@ -30,7 +30,6 @@ void	addstack_a(char **argv, t_list **a)
 	int		i;
 	int		n;
 	t_list	*new;
-	
 
 	i = 0;
 	while (argv[i])
@@ -47,7 +46,7 @@ void	index_stack_a(t_list **arg_a)
 {
 	t_list	*current;
 	t_list	*tmp;
-	int 	i;
+	int		i;
 
 	current = *arg_a;
 	while (current)
@@ -67,8 +66,8 @@ void	index_stack_a(t_list **arg_a)
 
 void	parsing(int ac, char **av, t_list **a)
 {
-	int 		i;
-	char		**argv;
+	int		i;
+	char	**argv;
 
 	if (ac < 2)
 		exit(0);
@@ -92,15 +91,13 @@ void	parsing(int ac, char **av, t_list **a)
 
 char	**ft_realloc(char **ptr, char *str, size_t new_size)
 {
-	char **new_ptr;
-	size_t i;
+	char	**new_ptr;
+	size_t	i;
 
 	i = 0;
-	// if (new_size == 0)
-	// 	return (new_ptr = (char **)malloc(sizeof(char *)));
 	new_ptr = (char **)malloc(sizeof(char *) * (new_size + 1));
 	if (!new_ptr)
-		return (NULL);	
+		return (NULL);
 	while (ptr && ptr[i])
 	{
 		new_ptr[i] = ptr[i];
@@ -112,35 +109,4 @@ char	**ft_realloc(char **ptr, char *str, size_t new_size)
 	new_ptr[i] = NULL;
 	free(ptr);
 	return (new_ptr);
-}
-
-
-
-int	main(int ac, char **av)
-{
-	t_list	*a;
-	t_list	*b;
-	char	**ptr;
-	char	*str;
-	int		i;
-
-	// atexit(ff);
-	a = NULL;
-	b = NULL;
-	ptr = NULL;
-	i = 0;
-	parsing(ac, av, &a);
-	while (1)
-	{
-		str = get_next_line(0);
-		if (!str)
-			break ;
-		if (ft_check_op(str) == 1)
-			msg_error(-2, "Error\n");
-		i++;
-		ptr = ft_realloc(ptr, str, i);
-	}
-	appli_operation(ptr, &a, &b);
-	ft_printf(a);
-	
 }

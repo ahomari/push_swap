@@ -6,12 +6,11 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:54:24 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/29 16:22:39 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/03/01 16:24:15 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap_bonus.h"
-
 
 int	ft_strcmp(char *s1, char *s2)
 {

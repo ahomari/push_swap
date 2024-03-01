@@ -6,7 +6,7 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:11:00 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/29 18:03:37 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/03/01 16:28:31 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,11 @@ void	ft_rotate(t_list **arg_ab, char c)
 	else if (c == 'b')
 		ft_putendl_fd("rb", 1);
 }
+
 void	ft_reverse_rotate(t_list **arg_ab, char c)
 {
-	t_list *tmp;
-	t_list *current;
+	t_list	*tmp;
+	t_list	*current;
 
 	current = *arg_ab;
 	if (ft_lstsize(current) < 2)
@@ -68,9 +69,10 @@ void	ft_reverse_rotate(t_list **arg_ab, char c)
 	else if (c == 'b')
 		ft_putendl_fd("rrb", 1);
 }
+
 void	ft_push_b(t_list **arg_a, t_list **arg_b)
 {
-	t_list *current;
+	t_list	*current;
 
 	current = *arg_a;
 	if (ft_lstsize(current) == 0)
@@ -79,9 +81,10 @@ void	ft_push_b(t_list **arg_a, t_list **arg_b)
 	ft_lstadd_front(arg_b, current);
 	ft_putendl_fd("pb", 1);
 }
+
 void	ft_push_a(t_list **arg_a, t_list **arg_b)
 {
-	t_list *current;
+	t_list	*current;
 
 	current = *arg_b;
 	if (ft_lstsize(current) == 0)

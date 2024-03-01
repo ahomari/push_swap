@@ -6,17 +6,16 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:47:40 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/26 21:05:02 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/03/01 16:31:02 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-
 void	check_stack_a(int n, t_list **a)
 {
 	t_list	*tmp;
-	
+
 	tmp = *a;
 	while (tmp)
 	{
@@ -31,7 +30,6 @@ void	addstack_a(char **argv, t_list **a)
 	int		i;
 	int		n;
 	t_list	*new;
-	
 
 	i = 0;
 	while (argv[i])
@@ -48,7 +46,7 @@ void	index_stack_a(t_list **arg_a)
 {
 	t_list	*current;
 	t_list	*tmp;
-	int 	i;
+	int		i;
 
 	current = *arg_a;
 	while (current)
@@ -68,8 +66,8 @@ void	index_stack_a(t_list **arg_a)
 
 void	parsing(int ac, char **av, t_list **a)
 {
-	int 		i;
-	char		**argv;
+	int		i;
+	char	**argv;
 
 	if (ac < 2)
 		exit(0);
@@ -91,17 +89,11 @@ void	parsing(int ac, char **av, t_list **a)
 	}
 }
 
-void ff()
-{
-	system("leaks push_swap");
-}
-
 int	main(int ac, char **av)
 {
 	t_list	*a;
 	t_list	*b;
 
-	// atexit(ff);
 	a = NULL;
 	b = NULL;
 	parsing(ac, av, &a);
@@ -109,5 +101,9 @@ int	main(int ac, char **av)
 		exit(0);
 	if (ft_lstsize(a) == 2)
 		ft_rotate(&a, 'a');
-	ft_sorting(&a, &b);
+	else if (ft_lstsize(a) == 5)
+		sort_5(&a, &b);
+	else
+		ft_sorting(&a, &b);
+	exit(0);
 }

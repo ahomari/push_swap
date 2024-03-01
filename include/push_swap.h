@@ -6,25 +6,22 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 17:48:07 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/25 20:08:20 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/03/01 16:50:12 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <unistd.h>
-#include <libc.h>
+# include <unistd.h>
+# include <libc.h>
 
 typedef struct s_list
 {
-	int 			index;
+	int				index;
 	int				content;
 	struct s_list	*next;
 }					t_list;
-
-
-
 
 void	msg_error(int num, char *msg);
 int		ft_atoi(char *str);
@@ -39,7 +36,6 @@ char	*ft_substr(char *s, unsigned int start, size_t len);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_free(char **strs);
 int		ft_isdigit(char c);
-void	ft_printf(t_list *a);
 void	ft_swap(t_list **arg, char c);
 int		ft_lstsize(t_list *lst);
 void	swap_ab(t_list **arg_a, t_list **arg_b);
@@ -57,7 +53,7 @@ void	ft_rotate(t_list **arg_ab, char c);
 void	ft_sorting2(t_list **arg_a, t_list **arg_b);
 int		ft_max(t_list **arg_ab);
 int		ft_index_b(int index, t_list **arg_b);
-
-
+void	sort_5(t_list **arg_a, t_list **arg_b);
+int	ft_check_sorting(t_list **arg_ab);
 
 #endif

@@ -6,12 +6,11 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 12:10:24 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/23 12:11:24 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/03/01 16:36:00 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
 
 void	ft_putchar_fd(char c, int fd)
 {
@@ -19,6 +18,7 @@ void	ft_putchar_fd(char c, int fd)
 		return ;
 	write (fd, &c, 1);
 }
+
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;

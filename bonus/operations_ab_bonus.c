@@ -6,7 +6,7 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 13:05:20 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/27 09:14:10 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/03/01 16:16:23 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	rotate_ab(t_list **arg_a, t_list **arg_b)
 	ft_rotate(arg_a);
 	ft_rotate(arg_b);
 }
+
 void	reverse_rotate_ab(t_list **arg_a, t_list **arg_b)
 {
 	ft_reverse_rotate(arg_a);

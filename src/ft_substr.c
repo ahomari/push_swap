@@ -6,7 +6,7 @@
 /*   By: ahomari <ahomari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 09:30:50 by ahomari           #+#    #+#             */
-/*   Updated: 2024/02/15 09:45:21 by ahomari          ###   ########.fr       */
+/*   Updated: 2024/03/01 16:36:45 by ahomari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 size_t	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
 	{
 		i++;
 	}
-	return  (i);
+	return (i);
 }
 
 char	*ft_substr(char *s, unsigned int start, size_t len)

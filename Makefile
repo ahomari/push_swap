@@ -13,11 +13,11 @@ SRC_FUNC_B		= bonus/src_bonus/ft_atoi_bonus.c bonus/src_bonus/ft_calloc_bonus.c 
 F_BONUS_OBJ		= ${SRC_FUNC_B:.c=.o}
 
 SRC_FUNC		= src/ft_atoi.c src/ft_lstadd_back.c src/ft_lstadd_front.c src/ft_lstlast.c src/ft_lstnew.c src/ft_split.c \
-					src/ft_calloc.c src/ft_strdup.c src/ft_substr.c src/ft_free.c src/ft_isdigit.c mandatory/print_linkedlist.c \
+					src/ft_calloc.c src/ft_strdup.c src/ft_substr.c src/ft_free.c src/ft_isdigit.c mandatory/checking.c\
 					src/ft_lstsize.c src/ft_putendl_fd.c
 F_OBJ			= ${SRC_FUNC:.c=.o}
 
-SRC_BUNUS		= bonus/checker_bonus.c bonus/msg_error_bonus.c bonus/operations_ab_bonus.c bonus/operations_bonus.c bonus/get_checker_bonus.c bonus/print_linkedlist.c
+SRC_BUNUS		= bonus/checker_bonus.c bonus/msg_error_bonus.c bonus/operations_ab_bonus.c bonus/operations_bonus.c bonus/get_checker_bonus.c bonus/main.c
 S_BONUS_OBJ		= ${SRC_BUNUS:.c=.o}
 
 SRC_MAN			= mandatory/push_swap.c mandatory/msg_error.c mandatory/operations.c mandatory/operations_ab.c mandatory/sorting.c
@@ -30,13 +30,13 @@ S_OBJ			= ${SRC_MAN:.c=.o}
 				${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}:		${F_OBJ} ${S_OBJ}
-				@${CC} ${F_OBJ} ${S_OBJ} -o ${NAME} -g -fsanitize=address
+				@${CC} ${F_OBJ} ${S_OBJ} -o ${NAME}
 				@echo "${GREEN}================================${DEFAULT}"
 				@echo "${GREEN}=======| ${NAME} Created! |=======${DEFAULT}"
 				@echo "${GREEN}================================${DEFAULT}"
 
 bonus  :		${F_BONUS_OBJ} ${S_BONUS_OBJ}
-				@${CC} ${F_BONUS_OBJ} ${S_BONUS_OBJ} -o ${NAME_BONUS} -g -fsanitize=address
+				@${CC} ${F_BONUS_OBJ} ${S_BONUS_OBJ} -o ${NAME_BONUS}
 				@echo "${GREEN}================================${DEFAULT}"
 				@echo "${GREEN}=======| ${NAME_BONUS} Created! |=======${DEFAULT}"
 				@echo "${GREEN}================================${DEFAULT}"
